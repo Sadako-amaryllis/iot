@@ -10,6 +10,7 @@ wlan.active(True) # active le mode client wifi
 
 ssid = '' #nom du réseau
 password = ' ' #mdp réseau 
+
 wlan.connect(ssid, password) # connecte la raspi au réseau
 
 def equilRGB(n):
