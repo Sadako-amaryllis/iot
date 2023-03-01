@@ -8,8 +8,9 @@ from pico_i2c_lcd import I2cLcd
 wlan = network.WLAN(network.STA_IF) # met la raspi en mode client wifi
 wlan.active(True) # active le mode client wifi
 
-ssid = 'IIM_Private'
-password = 'Creatvive_Lab_2023'
+ssid = '' #nom du réseau
+password = ' ' #mdp réseau 
+
 wlan.connect(ssid, password) # connecte la raspi au réseau
 
 def equilRGB(n):
