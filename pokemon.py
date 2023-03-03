@@ -8,8 +8,8 @@ from pico_i2c_lcd import I2cLcd
 wlan = network.WLAN(network.STA_IF) # met la raspi en mode client wifi
 wlan.active(True) # active le mode client wifi
 
-ssid = '' #nom du réseau
-password = ' ' #mdp réseau 
+ssid = 'IIM_Private'
+password = 'Creatvive_Lab_2023'
 
 wlan.connect(ssid, password) # connecte la raspi au réseau
 
@@ -36,7 +36,7 @@ arrayTypes = {
             "T\xe9n\xe8bre": (220,0,170),
             "Roche": ((145,145,255)),
             "Poison": (205,0,140),
-            "Insecte": (120,205,0)
+            "Insecte": (120,205,0),
             }
 blue = PWM(Pin(ledPin[0], mode=Pin.OUT))
 green = PWM(Pin(ledPin[1], mode=Pin.OUT))
@@ -82,6 +82,10 @@ while(True):
             blue2.duty_u16(equilRGB(blueHue2))
             red2.duty_u16(equilRGB(redHue2))
             green2.duty_u16(equilRGB(greenHue2))
+        else: 
+            blue2.duty_u16(0)
+            red2.duty_u16(0)
+            green2.duty_u16(0)
         print("Le pokemon est de type : " + " " + type1)
         redHue = arrayTypes[type1][0]
         greenHue = arrayTypes[type1][1]
@@ -90,11 +94,24 @@ while(True):
         red.duty_u16(equilRGB(redHue))
         green.duty_u16(equilRGB(greenHue))
 
+        if pokemon == "magicarpe":
+             type2 = "Dieu"
+             
         lcd.move_to(0,0)
         lcd.putstr(pokemon)
         lcd.move_to(0,1)
         lcd.putstr(type1 + " " + type2)
-        
+
+        if type2 == "Dieu" :
+                while True:
+                    blue2.duty_u16(equilRGB(120))
+                    red2.duty_u16(equilRGB(200))
+                    green2.duty_u16(equilRGB(200))
+                    utime.sleep(1)
+                    blue2.duty_u16(0)
+                    red2.duty_u16(0)
+                    green2.duty_u16(0)
+                    utime.sleep(1)
         
     except Exception as e:
         print(e)

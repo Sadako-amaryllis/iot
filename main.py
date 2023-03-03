@@ -9,7 +9,6 @@ I2C_ADDR = i2c.scan()[0]
 
 lcd = I2cLcd(i2c, I2C_ADDR, 2, 16)
 while True:
-  print(I2C_ADDR, "| Hex:",hex(I2C_ADDR))
   print()
   lcd.move_to(0,0)
   lcd.putstr("I2CAddress:"+hex(I2C_ADDR)+"\n")
