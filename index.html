@@ -8,12 +8,23 @@
     <title>Choisi un pokémon</title>
 </head>
 <body>
+    <script src="js/script.js"></script>
     <header>
-        <h1>Choisi un pokémon !</h1>
+        <h1>Choisis un pokémon !</h1>
+        <form action="localhost:4000" method="POST">
+            <input type="text">
+            <input type="submit" value="Choisir" class="button">
+        </form>
     </header>
-    <form action="pokemon.php" method="post">
-        <input type="text">
-        <input type="submit" value="Choisir">
-    </form>
+
+    <div class="pokemon">
+        <p class="key">
+            <p class="name">Pikachu</p>
+        </p>
+        <p class="key">
+            <p class="type">electrik</p>
+        </p>
+        <img src="" alt="">
+    </div>
 </body>
 </html>
